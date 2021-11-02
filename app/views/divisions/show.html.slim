@@ -1,0 +1,7 @@
+= @division.name
+br
+|employees:
+br
+- @division.employees.each do |employee|
+  = link_to employee.name, employee
+  br

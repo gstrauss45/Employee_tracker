@@ -1,0 +1,9 @@
+| Employees list:
+br
+- @employees.each do |employee|
+    = link_to employee.name, employee
+    = link_to 'edit', edit_employee_path(employee.id)
+    = link_to 'destroy', employee_path(:id => employee.id), method: :delete, data: { confirm: "Are you sure?" }, class: "header_delete"
+    br
+br
+=link_to 'New Employee', new_employee_path

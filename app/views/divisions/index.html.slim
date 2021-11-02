@@ -1,0 +1,9 @@
+| Divisions list:
+br
+- @divisions.each do |division|
+    = link_to division.name, division
+    = link_to 'edit', edit_division_path(division.id)
+    = link_to 'destroy', division_path(:id => division.id), method: :delete, data: { confirm: "Are you sure?" }, class: "header_delete"
+    br
+br
+=link_to 'New division', new_division_path

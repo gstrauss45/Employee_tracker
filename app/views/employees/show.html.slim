@@ -1,0 +1,19 @@
+|Name:
+=@employee.name
+= link_to 'Edit', edit_employee_path
+br
+|Division:
+= link_to @employee.division.name, @employee.division
+br
+|Projects:
+br
+- @employee.projects.each do |project|
+    =link_to project.name, project
+    br
+br
+|Add a new project:
+=form_with url: "/add_project", method: :post do |form|
+    = form.hidden_field(:id, :value => @employee.id)
+    = form.label :project
+    = form.select :project_id, @array
+    = form.submit

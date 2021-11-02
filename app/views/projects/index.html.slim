@@ -1,0 +1,9 @@
+| Projects list:
+br
+- @projects.each do |project|
+    = link_to project.name, project
+    = link_to 'edit', edit_project_path(project.id)
+    = link_to 'destroy', project_path(:id => project.id), method: :delete, data: { confirm: "Are you sure?" }, class: "header_delete"
+    br
+br
+=link_to 'New Project', new_project_path

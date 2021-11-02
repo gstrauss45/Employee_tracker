@@ -1,0 +1,9 @@
+=@project.name
+br
+| Employees
+br
+- @project.employees.each do |employee|
+    = link_to employee.name, employee
+    = link_to 'remove', remove_employee_path(id: employee.id, p_id: @project.id), method: 'post'
+    br
+br

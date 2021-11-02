@@ -1,0 +1,8 @@
+= form_with model: @employee do |form|
+  = form.label :name
+  = form.text_field :name
+  br
+  = form.label :division
+  = form.select :division_id, @array
+  br
+  = form.submit
