@@ -9,11 +9,14 @@ br
 br
 - @employee.projects.each do |project|
     =link_to project.name, project
+    - if policy(:project).remove?
+        = link_to 'remove', remove_project_path(id: @employee.id, p_id: project.id), method: 'post'
     br
 br
-|Add a new project:
-=form_with url: "/add_project", method: :post do |form|
-    = form.hidden_field(:id, :value => @employee.id)
-    = form.label :project
-    = form.select :project_id, @array
-    = form.submit
+- if policy(:project).add?
+    |Add a new project:
+    =form_with url: "/add_project", method: :post do |form|
+        = form.hidden_field(:id, :value => @employee.id)
+        = form.label :project
+        = form.select :project_id, @array
+        = form.submit

@@ -7,3 +7,9 @@ br
     = link_to 'remove', remove_employee_path(id: employee.id, p_id: @project.id), method: 'post'
     br
 br
+= form_with  url: "/add_employee", method: :post do |form|
+    = form.hidden_field(:project_id, :value => @project.id)
+    =form.label :add_employee
+    =form.select :employee_id, @array
+
+    =form.submit

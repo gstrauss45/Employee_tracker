@@ -1,5 +1,7 @@
-=link_to 'Divisions', divisions_path
-br
+- if policy(:division).show?
+  =link_to 'Divisions', divisions_path
+  br
+- elsif policy(:project).show?
+  =link_to 'Projects', projects_path
+  br
 =link_to 'Employees', employees_path
-br
-=link_to 'Projects', projects_path
